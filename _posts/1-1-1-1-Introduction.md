@@ -14,43 +14,11 @@
 
 # Topics
 
-* Kubernetes Architecture {% fragment %}
+* Kubernetes Deployment Options {% fragment %}
 * Threat Models & Attack Surface {% fragment %}
-* API Server Security {% fragment %}
-* etcd security {% fragment %}
-* Worker Node Security {% fragment %}
-* Container Security {% fragment %}
-
+* Key Security Concerns {% fragment %}
 
 ---
-
-# Kubernetes Architecture
-
---
-
-# Control Plane
-
-* API Server {% fragment %}
-* Scheduler {% fragment %}
-* Controller Manager {% fragment %}
-
-Note:
-
-The API is the main focus of the control plane from a security perspective as it controls a lot of the interaction with users of the system (either human users or calling external components).  Also in terms of exposed functionality the API server port tends to be the one thing which is available outside of the cluster.
-
---
-
-# etcd
-
---
-
-# Worker Nodes
-
-* Kubelet {% fragment %}
-* Kube-proxy {% fragment %}
-* Docker {% fragment %}
-
---
 
 # Kubernetes Deployment Optons
 
@@ -62,6 +30,8 @@ The API is the main focus of the control plane from a security perspective as it
 Note:
 
 There are currently over 60 different flavours of k8s available (https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0), in addition to the option of spinning up the cluster manually.  This leads to probably one of the larger problems for k8s security, which is that you get the defaults that the cluster provider decided were appropriate from a security standpoint, and this is generally opaque to the end user.
+
+There are some big differences between quite lightweight installers, to far more opionated distributions (e.g. openshift)
 
 ---
 
@@ -94,23 +64,77 @@ Threat models are very important in security.  First question in response to "Is
 
 --
 
-# Compromised Container
+# Attacker with access to a single container
 
 --
 
-# Multi-Tenant (co-operative)
-
---
-
-# Full Multi-Tenant
+# User with rights to run a container
 
 ---
 
-# API Server Security
+# External Attacker
 
 --
 
-# Authentication
+# Network Visibility
+
+* 4194/tcp      open  cAdvisor
+* 6443/tcp      open  API Server
+* 6781-6783/tcp open  Weave
+* 10250/tcp     open  kubelet
+* 10255/tcp     open  kubelet (Read Only)
+
+--
+
+# Information Disclosure with cAdvisor
+
+--
+
+# API Server Attacks
+
+--
+
+# Attacking the Kubelet
+
+---
+
+# Attacker with access to a single container
+
+--
+
+# Increased Attack Surface
+
+ * Filesystem {% fragment %}
+ * "Internal" Network Position {% fragment %}
+ * Kernel Attacks {% fragment %}
+
+--
+
+# Attacking Service Account Tokens
+
+--
+
+# Internal Network Attacks
+
+--
+
+# Attacking the OS kernel
+
+---
+
+# Malicious User 
+
+--
+
+# Access to Nodes
+
+---
+
+# Key Security Concerns
+
+--
+
+# API Server Authentication
 * Basic Auth
 * Token Auth
 * Certificate Auth
@@ -133,9 +157,10 @@ This particular concept causes one of the areas where cluster security can provi
 Note: 
 
 The insecure port (typically 8080) is still used by some distributions and in at least one case, it's bound to a network interface that faces into the cluster (ACS), which means any user of the cluster can access it and execute commands.
+
 --
 
-# Authorisation
+# API Server Authorisation
 * ABAC
 * RBAC
 * Webhook
@@ -150,11 +175,26 @@ RBAC is generally considered the way authorisation will be handled going forward
 
 Also due to K8s not managing user identity, questions like "who has cluster-admin rights" become pretty difficult to answer.  For example if a certificate is created froma trusted CA with the system:masters group assigned, there's nothing within k8s that tracks the lifecycle of that certificate.
 
+--
+
+ # Control Access to the Kubelet
+
+--
+
+ # Control Access to etcd
+
+--
+
+ # Other things to think about
+ * PodSecurityPolicy {% fragment %}
+ * SecurityContext {% fragment %}
+
 ---
 
 # Resources
 
 * CIS Security Guide for Kubernetes - https://learn.cisecurity.org/benchmarks
+* KubeAutoAnalyzer - https://github.com/nccgroup/kube-auto-analyzer
 
 ---
 
