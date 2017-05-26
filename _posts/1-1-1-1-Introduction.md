@@ -33,6 +33,10 @@ There are currently over 60 different flavours of k8s available (https://docs.go
 
 There are some big differences between quite lightweight installers, to far more opionated distributions (e.g. openshift)
 
+--
+
+# The importance of secure defaults!
+
 ---
 
 # Some Terminology
