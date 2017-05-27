@@ -92,9 +92,16 @@ Threat models are very important in security.  First question in response to "Is
 
 # Information Disclosure with cAdvisor
 
+Note:
+
+Information disclosure via cAdvisor can provide an attacker useful information (e.g. what pods are running on a given sysmtem) but is unlikely to lead to compromise on it's own.
 --
 
 # API Server Attacks
+
+Note:
+
+From an external perspective, getting easy access to the API server would rely either on a stolen set of credentials, or on the cluster opening the insecure port to the external network.  
 
 --
 
