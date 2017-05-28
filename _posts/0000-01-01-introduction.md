@@ -14,9 +14,19 @@
 
 # Topics
 
+* Kubernetes Architecture {% fragment %}
 * Kubernetes Deployment Options {% fragment %}
 * Threat Models & Attack Surface {% fragment %}
 * Key Security Concerns {% fragment %}
+
+---
+
+# Key Components
+
+* API Server {% fragment %}
+* etcd {% fragment %}
+* Kubelet {% fragment %}
+
 
 ---
 
@@ -30,6 +40,8 @@
 Note:
 
 There are currently over 60 different flavours of k8s available (https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0), in addition to the option of spinning up the cluster manually.  This leads to probably one of the larger problems for k8s security, which is that you get the defaults that the cluster provider decided were appropriate from a security standpoint, and this is generally opaque to the end user.
+
+On premises could be something like kubeadm or kismatic. Cloud base self-managed could be something like kops, cloud-based provider managed is more like GCE.
 
 There are some big differences between quite lightweight installers, to far more opionated distributions (e.g. openshift)
 
@@ -60,19 +72,31 @@ Concept of attack surface is very important in security, the larger the attack s
 
 Note:
 
-Threat models are very important in security.  First question in response to "Is this secure?" is "From what"
+Threat models are very important in security.  First question in response to "Is this secure?" is "From what?"
 
 --
 
 # External Attackers
 
+Note:
+
+Here we have an attacker who can see the cluster across a network (either over the Internet for a cloud based cluster, or over an internal network)
+
 --
 
 # Attacker with access to a single container
 
+Note:
+
+Here we've got an attacker who has managed to get command execution access to a single container.  For example using a vulnerability in a web application deployed to the cluster.
+
 --
 
 # User with rights to run a container
+
+Note: 
+
+Here we've got a user who has some level of cluster rights, below cluster-admin. So there's an intention that they'll be able to execute some actions on the cluster and not others.
 
 ---
 
@@ -95,6 +119,7 @@ Threat models are very important in security.  First question in response to "Is
 Note:
 
 Information disclosure via cAdvisor can provide an attacker useful information (e.g. what pods are running on a given sysmtem) but is unlikely to lead to compromise on it's own.
+
 --
 
 # API Server Attacks
@@ -107,6 +132,10 @@ From an external perspective, getting easy access to the API server would rely e
 
 # Attacking the Kubelet
 
+Note: 
+
+The kubelet is a very interesting component from a security standpoint as it controls access to the container engine (e.g. Docker) running on the node.  There are generally 2 ports associated with the kubelet process.  10250/TCP is the read/write port, and 10255/TCP is the read-only port.  Prior to 1.5 all access to the kubelet was unauthenticated, so if you could see the port you could execute commands against it.  Since then it has been possible to restrict access, however many clusters still haven't implemented this protection.   
+
 ---
 
 # Attacker with access to a single container
@@ -115,7 +144,7 @@ From an external perspective, getting easy access to the API server would rely e
 
 # Increased Attack Surface
 
- * Filesystem {% fragment %}
+ * Container Filesystem Access {% fragment %}
  * "Internal" Network Position {% fragment %}
  * Kernel Attacks {% fragment %}
 
@@ -134,6 +163,10 @@ From an external perspective, getting easy access to the API server would rely e
 ---
 
 # Malicious User 
+
+--
+
+# kubectl
 
 --
 

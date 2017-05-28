@@ -28,6 +28,8 @@ attacking the readonly port we can get more info. disclosure
 /stats/summary
 /spec/
 
+so http://knode1:10255/pods can provide us some interesting information.
+
 Attacking the main kubelet port we can do a lot more, if it's exposed.
 
 https://knode1:10250/containerLogs/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver/
