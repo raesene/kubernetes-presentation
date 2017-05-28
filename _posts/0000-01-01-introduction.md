@@ -19,6 +19,10 @@
 * Threat Models & Attack Surface {% fragment %}
 * Key Security Concerns {% fragment %}
 
+Note:
+
+Not covering general docker / container security much, see previous presentations :)
+
 ---
 
 # Key Components
@@ -106,8 +110,10 @@ Here we've got a user who has some level of cluster rights, below cluster-admin.
 
 # Network Visibility
 
+* 2379/tcp      open  etcd
 * 4194/tcp      open  cAdvisor
 * 6443/tcp      open  API Server
+* 8080/tcp      open  Insecure API Server
 * 6781-6783/tcp open  Weave
 * 10250/tcp     open  kubelet
 * 10255/tcp     open  kubelet (Read Only)
@@ -164,9 +170,21 @@ The kubelet is a very interesting component from a security standpoint as it con
 
 # Malicious User 
 
+Note:
+
+Malicious users are harder to stop, as they can start new containers. Older versions of kubernetes basically had no divisions of rights once you were in a container and even now the restrictions may not get you all the way to "multi-tenant". If you look at presentations like the ones at Google I/O there's a sense that k8s isn't multi-tenant ready yet, but will get there over the next couple of versions.
+
 --
 
 # kubectl
+
+Note:
+
+Access to kubectl without additional controls is pretty quickly going to lead to cluster admin.  With privileged containers being available it's possible for an unconstrained user to execute things inside your cluster that will allow them to do what they want.
+
+kubectl exec allows for command execution inside pods and if a user can create a "privileged" pod they can break out to the node fairly easily.
+
+Kubernetes has the concept of namespaces to divide resources inside a cluster, but that's more of an administrative distinction than a security one.
 
 --
 
