@@ -9,6 +9,7 @@
  - 16 Years in IT/Information Security
  - Managing Consultant at NCC Group PLC
  - Contributor at Security Stack Exchange
+ - Contributing author to the CIS Docker and Kubernetes Standards
 
 ---
 
@@ -24,6 +25,13 @@ Note:
 Not covering general docker / container security much, see previous presentations :)
 
 ---
+
+# What is Kubernetes?
+
+Note: Brief overview of Kubernetes.
+
+
+--
 
 # Key Components
 
@@ -63,7 +71,7 @@ There are some big differences between quite lightweight installers, to far more
 
 --
 
-<img src="/images/risk.png"/>
+<img src="/images/risk.png"/> 
 
 Note: 
 
@@ -128,19 +136,28 @@ Information disclosure via cAdvisor can provide an attacker useful information (
 
 --
 
-# API Server Attacks
-
-Note:
-
-From an external perspective, getting easy access to the API server would rely either on a stolen set of credentials, or on the cluster opening the insecure port to the external network.  
-
---
-
 # Attacking the Kubelet
 
 Note: 
 
 The kubelet is a very interesting component from a security standpoint as it controls access to the container engine (e.g. Docker) running on the node.  There are generally 2 ports associated with the kubelet process.  10250/TCP is the read/write port, and 10255/TCP is the read-only port.  Prior to 1.5 all access to the kubelet was unauthenticated, so if you could see the port you could execute commands against it.  Since then it has been possible to restrict access, however many clusters still haven't implemented this protection.   
+
+--
+
+# API Server Attacks
+
+Note:
+
+From an external perspective, getting easy access to the API server would rely either on a stolen set of credentials, or on the cluster opening the insecure port to the external network.  
+If the insecure port ex
+
+--
+
+# Attacking etcd
+
+Note:
+
+We can used etcdctl to dump the contents of the database.
 
 ---
 
@@ -172,11 +189,13 @@ The kubelet is a very interesting component from a security standpoint as it con
 
 Note:
 
+Key difference is that a user with kubectl can create new containers with their specification.
+
 Malicious users are harder to stop, as they can start new containers. Older versions of kubernetes basically had no divisions of rights once you were in a container and even now the restrictions may not get you all the way to "multi-tenant". If you look at presentations like the ones at Google I/O there's a sense that k8s isn't multi-tenant ready yet, but will get there over the next couple of versions.
 
 --
 
-# kubectl
+# kubectl & Privileged Containers
 
 Note:
 
@@ -196,11 +215,15 @@ Kubernetes has the concept of namespaces to divide resources inside a cluster, b
 
 --
 
+# Insecure Port
+
+Note: 
+
+The insecure port (typically 8080) is still used by some distributions and in at least one case, it's bound to a network interface that faces into the cluster (ACS), which means any user of the cluster can access it and execute commands.
+
+--
+
 # API Server Authentication
-* Basic Auth
-* Token Auth
-* Certificate Auth
-* External Auth
 
 Note:
 
@@ -214,13 +237,6 @@ This particular concept causes one of the areas where cluster security can provi
 
 --
 
-# Insecure Port
-
-Note: 
-
-The insecure port (typically 8080) is still used by some distributions and in at least one case, it's bound to a network interface that faces into the cluster (ACS), which means any user of the cluster can access it and execute commands.
-
---
 
 # API Server Authorisation
 * ABAC

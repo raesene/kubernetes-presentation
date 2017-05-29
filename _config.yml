@@ -2,7 +2,7 @@
 title: Kubernetes Container Clustering, Catastrophe? 
 
 # The Reveal theme
-reveal_theme: league.css
+reveal_theme: solarized.css
 
 # The Reveal transition
 reveal_transition: default
