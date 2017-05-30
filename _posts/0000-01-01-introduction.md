@@ -2,6 +2,8 @@
 
 ## Container Clustering, Catastrophe?
 
+Note: One of the reasons for doing this research and contributing to the CIS standard was the lack of existing information on Kubernetes Security.  That said there are some good presentations to go watch https://www.youtube.com/watch?v=BER8uridVIs - Securing Kubernetes, Jesse Endahl. https://www.youtube.com/watch?v=xpFpdYtSoBw - Security Best Practices for Kubernetes Deployment - Michael Cherny
+
 ---
 
 # About Me
@@ -38,6 +40,8 @@ Note: Brief overview of Kubernetes.
 * API Server {% fragment %}
 * etcd {% fragment %}
 * Kubelet {% fragment %}
+
+Note: There are a wide range of Kubernetes components, but for the purposes of this talk these are the ones that we're going to focus on for this talk.
 
 
 ---
@@ -157,7 +161,7 @@ If the insecure port ex
 
 Note:
 
-We can used etcdctl to dump the contents of the database.
+We can used etcdctl to dump the contents of the database.  Importantly one of the things that etcd stores is all Kubernetes secrets are stored in clear text in etcd.  An attacker who can either get access to the etcd service or can get access to the underlying node can pwn all secrets.   A good secrets management post is at https://medium.com/on-docker/secrets-and-lie-abilities-the-state-of-modern-secret-management-2017-c82ec9136a3d#.k3yxv32o9
 
 ---
 
@@ -175,9 +179,13 @@ We can used etcdctl to dump the contents of the database.
 
 # Attacking Service Account Tokens
 
+Note:  from demo notes, service account tokens can be very dangerous if RBAC isn't used as they're cluster admins.
+
 --
 
 # Internal Network Attacks
+
+Note:  Default cluster configuration is that each cluster is a flat network space.  Kubernetes does provide a facility for limiting this with NetworkPolicy, however the network plugin needs to support it.  Calico is the only one I'm currently aware of which does that.
 
 --
 
@@ -203,11 +211,19 @@ Access to kubectl without additional controls is pretty quickly going to lead to
 
 kubectl exec allows for command execution inside pods and if a user can create a "privileged" pod they can break out to the node fairly easily.
 
-Kubernetes has the concept of namespaces to divide resources inside a cluster, but that's more of an administrative distinction than a security one.
+Kubernetes has the concept of namespaces to divide resources inside a cluster, but that's more of an administrative distinction than a security one. 
+
+Also ability to pull secrets from Kubernetes secrets store is not segmented
 
 --
 
 # Access to Nodes
+
+Note:
+
+A user who can run containers can get acces to underlying nodes by mapping resources into the container, or running a "privileged" container.  Unfortunately pretty much every cluster I've looked at allows privileged containers, so a user who's not otherwise restricted can get full access to the underlying node.
+
+PodSecurityPolicy is the approach that needs to be taken to address this.  Restrict what users can do with containers.
 
 ---
 
@@ -266,6 +282,11 @@ Also due to K8s not managing user identity, questions like "who has cluster-admi
  # Other things to think about
  * PodSecurityPolicy {% fragment %}
  * SecurityContext {% fragment %}
+ * Network segmentation {% fragment %}
+
+ Note: 
+
+ There
 
 ---
 
