@@ -30,16 +30,14 @@ Not covering general docker / container security much, see previous presentation
 
 # What is Kubernetes?
 
-Note: Brief overview of Kubernetes.
+Note: Brief overview of Kubernetes.  A system for creating and managing sets of containers.  some key terms, Nodes, Pods, services, Master Nodes, Worker Nodes, etcd
 
 
 --
 
-# Key Components
+### Key Components
 
-* API Server {% fragment %}
-* etcd {% fragment %}
-* Kubelet {% fragment %}
+<image src="/images/architecture.PNG"/>
 
 Note: There are a wide range of Kubernetes components, but for the purposes of this talk these are the ones that we're going to focus on for this talk.
 
@@ -144,7 +142,7 @@ Information disclosure via cAdvisor can provide an attacker useful information (
 
 Note: 
 
-The kubelet is a very interesting component from a security standpoint as it controls access to the container engine (e.g. Docker) running on the node.  There are generally 2 ports associated with the kubelet process.  10250/TCP is the read/write port, and 10255/TCP is the read-only port.  Prior to 1.5 all access to the kubelet was unauthenticated, so if you could see the port you could execute commands against it.  Since then it has been possible to restrict access, however many clusters still haven't implemented this protection.   
+The kubelet is a very interesting component from a security standpoint as it controls access to the container engine (e.g. Docker) running on the node.  There are generally 2 ports associated with the kubelet process.  10250/TCP is the read/write port, and 10255/TCP is the read-only port.  Prior to 1.5 all access to the kubelet was unauthenticated, so if you could see the port you could execute commands against it.  Since then it has been possible to restrict access, however many clusters still haven't implemented this protection.   Kubelet authorization is possible but the default is alwaysAllow https://kubernetes.io/docs/admin/kubelet-authentication-authorization/#kubelet-authentication
 
 --
 
