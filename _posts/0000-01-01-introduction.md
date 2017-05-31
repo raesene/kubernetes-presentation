@@ -231,6 +231,12 @@ PodSecurityPolicy is the approach that needs to be taken to address this.  Restr
 
 # Insecure Port
 
+```
+--insecure-port=0
+--insecure-bind-address - Not Set
+```
+
+
 Note: 
 
 The insecure port (typically 8080) is still used by some distributions and in at least one case, it's bound to a network interface that faces into the cluster (ACS), which means any user of the cluster can access it and execute commands.
@@ -238,6 +244,12 @@ The insecure port (typically 8080) is still used by some distributions and in at
 --
 
 # API Server Authentication
+
+```
+--anonymous-auth=false
+--basic-auth-file - Not Set
+--token-auth-file - Not Set
+```
 
 Note:
 
@@ -253,9 +265,11 @@ This particular concept causes one of the areas where cluster security can provi
 
 
 # API Server Authorisation
-* ABAC
-* RBAC
-* Webhook
+
+```
+--authorization-mode=RBAC
+```
+
 
 Note:
 
@@ -271,9 +285,23 @@ Also due to K8s not managing user identity, questions like "who has cluster-admi
 
  # Control Access to the Kubelet
 
+ ```
+ --anonymous-auth=false
+ --authorization-mode - Not set to "AlwaysAllow"
+ --read-only-port=0
+ --cadvisor-port=0
+ ```
+
 --
 
  # Control Access to etcd
+
+ ```
+ --client-cert-auth=true
+ --auto-tls=false
+ --peer-client-cert-auth=true
+ --peer-auto-tls=false
+ ```
 
 --
 
