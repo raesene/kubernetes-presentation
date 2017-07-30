@@ -1,5 +1,12 @@
 # Demo Notes
 
+## Kubernetes Demo
+
+kubectl create -f example.yaml
+
+This should spin up the guestbook example using the repo. on 192.168.111.50 (don't forget to start this VM)
+
+
 ## cAdvisor Information Leakage
 
 The cAdvisor port is exposed by default in many k8s installations at 4194/TCP.  So in a browser assuming that we have access to the cluster over a network we can simply browse to the port to look around
