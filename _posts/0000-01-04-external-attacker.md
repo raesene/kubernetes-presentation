@@ -1,4 +1,4 @@
-# External Attacker
+<img src="images/external-attackers.jpg"/>
 
 --
 

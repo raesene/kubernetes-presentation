@@ -1,4 +1,4 @@
-# Some Terminology
+<img src="/images/some-terminology.jpg"/>
 
 --
 

@@ -21,6 +21,10 @@ Credit - Photo by Axel Ahoi on Unsplash
 Note: There are a wide range of Kubernetes components, but for the purposes of this talk these are the ones that we're going to focus on for this talk.
 
 
+--
+
+# Kubernetes Networking
+
 ---
 
 ### Kubernetes Deployment Optons

@@ -2,7 +2,7 @@
 
 --
 
-# Insecure Port
+## Insecure Port
 
 ```
 --insecure-port=0
@@ -16,7 +16,7 @@ The insecure port (typically 8080) is still used by some distributions and in at
 
 --
 
-# API Server Authentication
+## API Server Authentication
 
 ```
 --anonymous-auth=false
@@ -37,7 +37,7 @@ This particular concept causes one of the areas where cluster security can provi
 --
 
 
-# API Server Authorisation
+## API Server Authorisation
 
 ```
 --authorization-mode=RBAC
@@ -56,7 +56,7 @@ Also due to K8s not managing user identity, questions like "who has cluster-admi
 
 --
 
-# Control Access to the Kubelet
+## Control Access to the Kubelet
 
 ```
 --anonymous-auth=false
@@ -67,7 +67,7 @@ Also due to K8s not managing user identity, questions like "who has cluster-admi
 
 --
 
-# Control Access to etcd
+## Control Access to etcd
 
 ```
 --client-cert-auth=true
@@ -78,7 +78,7 @@ Also due to K8s not managing user identity, questions like "who has cluster-admi
 
 --
 
-# Other things to think about
+## Other things to think about
 * PodSecurityPolicy {% fragment %}
 * SecurityContext {% fragment %}
 * Network Policy {% fragment %}
