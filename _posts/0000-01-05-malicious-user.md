@@ -1,4 +1,4 @@
-# Malicious User 
+<img src="images/malicious-user.jpg"/>
 
 Note:
 

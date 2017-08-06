@@ -1,4 +1,4 @@
-# Key Security Concerns
+<img src="images/key-security-considerations.jpg" />
 
 --
 
