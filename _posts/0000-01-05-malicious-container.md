@@ -1,4 +1,4 @@
-# Attacker with access to a single container
+<img src="images/malicious-container.jpg"/>
 
 --
 

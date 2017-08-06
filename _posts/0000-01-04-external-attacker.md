@@ -2,7 +2,7 @@
 
 --
 
-# Network Visibility
+# External Network Visibility
 
 * 2379/tcp      open  etcd
 * 4194/tcp      open  cAdvisor
@@ -18,7 +18,7 @@
 
 Note:
 
-Information disclosure via cAdvisor can provide an attacker useful information (e.g. what pods are running on a given sysmtem) but is unlikely to lead to compromise on it's own.
+Information disclosure via cAdvisor can provide an attacker useful information (e.g. what pods are running on a given system) but is unlikely to lead to compromise on it's own.
 
 --
 
