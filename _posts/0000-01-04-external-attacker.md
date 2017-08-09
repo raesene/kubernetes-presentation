@@ -2,15 +2,15 @@
 
 --
 
-# External Network Visibility
+### External Network Visibility
 
 * 2379/tcp      open  etcd
 * 4194/tcp      open  cAdvisor
 * 6443/tcp      open  API Server
 * 8080/tcp      open  Insecure API Server
-* 6781-6783/tcp open  Weave
 * 10250/tcp     open  kubelet
 * 10255/tcp     open  kubelet (Read Only)
+* <various>     open  <Network plugins>
 
 --
 
