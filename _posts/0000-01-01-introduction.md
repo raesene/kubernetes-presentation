@@ -6,7 +6,7 @@ Note: One of the reasons for doing this research and contributing to the CIS sta
 
 # About Me
 
- - 16 Years in IT/Information Security
+ - 17 Years in IT/Information Security
  - Managing Consultant at NCC Group PLC
  - Contributor at Security Stack Exchange
  - Contributing author to the CIS Docker and Kubernetes Standards
@@ -17,7 +17,7 @@ Note: One of the reasons for doing this research and contributing to the CIS sta
 
 * Kubernetes Architecture {% fragment %}
 * Kubernetes Deployment Options {% fragment %}
-* Threat Models & Attack Surface {% fragment %}
+* Threat Model {% fragment %}
 * Key Security Concerns {% fragment %}
 
 Note:
