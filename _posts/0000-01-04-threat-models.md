@@ -1,25 +1,8 @@
-<img src="/images/some-terminology.jpg"/>
-
---
-
-# Attack Surface
-
---
-
-<img src="/images/risk.png"/> 
-
-Note: 
-
-Image from wikimedia - Riskgamenut -  https://upload.wikimedia.org/wikipedia/en/5/55/Riskgameboard.svg - CC BY-SA 3.0
-Concept of attack surface is very important in security, the larger the attack surface the more there is to secure and the larger the scope for security vulnerabilities
-
---
-
 # Threat Model
 
 Note:
 
-Threat models are very important in security.  First question in response to "Is this secure?" is "From what?"
+Threat models are very important in security.  First question in response to "Is this secure?" is "From what?".  Also very important when discussing Kubernetes security with developers or other stake holders as they may feel that a deployment is secure when they've explicitly ruled out some threat models (e.g. malicious container)
 
 --
 
