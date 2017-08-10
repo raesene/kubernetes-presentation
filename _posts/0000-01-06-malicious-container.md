@@ -16,9 +16,19 @@ Note:  from demo notes, service account tokens can be very dangerous if RBAC isn
 
 --
 
-# Internal Network Attacks
+# API Server Attacks
 
-Note:  Default cluster configuration is that each cluster is a flat network space.  Kubernetes does provide a facility for limiting this with NetworkPolicy, however the network plugin needs to support it.  Calico is the only one I'm currently aware of which does that.
+Note:
+
+Access to the insecure port is much more likely from an internal perspective than an external perspective (in that it's game over if it happens).  If the insecure port is enabled it's generally a cluster-admin, so access to it is "game over"
+
+--
+
+# Attacking etcd
+
+Note:
+
+We can used etcdctl to dump the contents of the database.  Importantly one of the things that etcd stores is all Kubernetes secrets are stored in clear text in etcd.  An attacker who can either get access to the etcd service or can get access to the underlying node can pwn all secrets.   A good secrets management post is at https://medium.com/on-docker/secrets-and-lie-abilities-the-state-of-modern-secret-management-2017-c82ec9136a3d#.k3yxv32o9
 
 --
 
