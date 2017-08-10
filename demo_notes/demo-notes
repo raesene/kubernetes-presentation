@@ -62,3 +62,6 @@ etcdctl --endpoints=http://192.168.111.10:2379 snapshot save test2.db
 
 This dumps the etcd database into a file.  It's not pure text however things like service account tokens are stored in there, so it should be relatively easy to extract that information from the system.
 
+## Abusing user rights
+
+Unless items like podsecuritypolicy have been deployed to the cluster
