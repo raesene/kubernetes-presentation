@@ -1,4 +1,4 @@
-# Kubernetes Architecture
+<image src="/images/kubernetes-architecture.jpg"/>
 
 --
 
@@ -18,7 +18,16 @@ Note: There are a wide range of Kubernetes components, but for the purposes of t
 
 # Kubernetes Networking
 
----
+* Overlay Network
+* Many Options (e.g. weave, calico, flannel)
+
+Note:  
+
+Overlay networking is a key concept for Kubernetes clusters.  The overlay network allows containers to communicate with each other as though they were all on the same local LAN, even if the underlying nodes are not co-located.  In the basic case the cluster network is flat.
+
+The wide range of options for networking add some complexity to the potential configurations of k8s clustes. Some of these options have their own system services (e.g. etcd stores) which can increase the attack surface of the cluster.
+
+--
 
 ### Kubernetes Deployment Optons
 

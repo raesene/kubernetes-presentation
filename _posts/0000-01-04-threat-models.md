@@ -1,4 +1,4 @@
-# Threat Model
+<image src="/images/threat-model.jpg"/>
 
 Note:
 
