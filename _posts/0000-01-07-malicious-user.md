@@ -22,6 +22,10 @@ Also ability to pull secrets from Kubernetes secrets store is not segmented
 
 --
 
+<video src="/demo_videos/privpod.mp4"/>
+
+--
+
 # Access to Nodes
 
 Note:

@@ -22,8 +22,20 @@ Information disclosure via cAdvisor can provide an attacker useful information (
 
 --
 
+<video src="/demo_videos/cadvisor.mp4"/>
+
+--
+
 # Attacking the Kubelet
 
 Note: 
 
 The kubelet is a very interesting component from a security standpoint as it controls access to the container engine (e.g. Docker) running on the node.  There are generally 2 ports associated with the kubelet process.  10250/TCP is the read/write port, and 10255/TCP is the read-only port.  Prior to 1.5 all access to the kubelet was unauthenticated, so if you could see the port you could execute commands against it.  Since then it has been possible to restrict access, however many clusters still haven't implemented this protection.   Kubelet authorization is possible but the default is alwaysAllow https://kubernetes.io/docs/admin/kubelet-authentication-authorization/#kubelet-authentication
+
+--
+
+<video src="/demo_videos/kubelet-read-only.mp4"/>
+
+--
+
+<video src="/demo_videos/kubelet.mp4"/>
