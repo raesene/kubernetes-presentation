@@ -40,6 +40,10 @@ We can used etcdctl to dump the contents of the database.  Importantly one of th
 
 --
 
+<video src="/demo_videos/etcd.mp4"/>
+
+--
+
 # Attacking the OS kernel
 
 Note:  There are some things that can be done to mitigate this kind of risk.  Specifically doing things filtering syscalls.  Docker has a default filter here but worth noting that Kubernetes disables it by default, so you need to re-enable it explicitly with SecurityContext to put it back in.
