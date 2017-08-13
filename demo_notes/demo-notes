@@ -64,4 +64,10 @@ This dumps the etcd database into a file.  It's not pure text however things lik
 
 ## Abusing user rights
 
-Unless items like podsecuritypolicy have been deployed to the cluster
+Unless items like podsecuritypolicy have been deployed to the cluster it's possible to run prvileged containers and also to mount in volumes from the host.
+ 
+kubectl create -f privpod.yml
+
+cd /node
+
+whoami

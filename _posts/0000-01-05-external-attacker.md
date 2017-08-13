@@ -6,7 +6,7 @@
 
 * 2379/tcp      open  etcd
 * 4194/tcp      open  cAdvisor
-* 6443/tcp      open  API Server
+* (6|8)443/tcp  open  API Server
 * 8080/tcp      open  Insecure API Server
 * 10250/tcp     open  kubelet
 * 10255/tcp     open  kubelet (Read Only)
