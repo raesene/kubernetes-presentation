@@ -6,7 +6,7 @@ Threat models are very important in security.  First question in response to "Is
 
 --
 
-# External Attackers
+## External Attackers
 
 Note:
 
@@ -14,7 +14,7 @@ Here we have an attacker who can see the cluster across a network (either over t
 
 --
 
-# Attacker with access to a single container
+## Attacker with access to a single container
 
 Note:
 
@@ -22,7 +22,7 @@ Here we've got an attacker who has managed to get command execution access to a 
 
 --
 
-# User with rights to run a container
+## User with rights to run a container
 
 Note: 
 
