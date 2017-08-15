@@ -10,6 +10,15 @@
 
 --
 
+### Some Terminology
+
+* Containers
+* Pods
+* Services
+* Nodes
+
+--
+
 
 ### Key Components
 
