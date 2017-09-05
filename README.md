@@ -1,8 +1,11 @@
-# Cloud Native Glasgow Presentation
+# Kubernetes Presentation - 2017
 
-DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! DRAFT! 
-
-Presentation for my Kubernetes Security talk for Cloud Native Glasgow in June 2017
+Presentation on Kubernetes security, given at 
+ 
+ - Cloud Native Glasgow
+ - BSides Manchester
+ - BSides Belfast
+ - ???
 
 ## Software
 
@@ -12,4 +15,4 @@ To run just clone the repo and do ```jekyll serve -H 127.0.0.1```
 
 ## Source and Notes
 
-The source for the presentation in terms of content is the markdown file in _posts.  It renders reasonably nicely in github so you can see it [here](https://github.com/raesene/kubernetes-presentation/blob/master/_posts/1-1-1-1-Introduction.md)
+The source for the presentation in terms of content is the markdown file in _posts.  It renders reasonably nicely in github so you can see it by looking in the _posts directory
