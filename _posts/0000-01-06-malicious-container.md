@@ -20,18 +20,6 @@ Note:  from demo notes, service account tokens can be very dangerous if RBAC isn
 
 --
 
-# API Server Attacks
-
-Note:
-
-Access to the insecure port is much more likely from an internal perspective than an external perspective (in that it's game over if it happens).  If the insecure port is enabled it's generally a cluster-admin, so access to it is "game over"
-
---
-
-<video src="/demo_videos/insecure-api-port.mp4"/>
-
---
-
 # Attacking etcd
 
 Note:

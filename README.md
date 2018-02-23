@@ -1,11 +1,11 @@
-# Kubernetes Presentation - 2017
+# Kubernetes Presentation - 2018
 
 Presentation on Kubernetes security, given at 
  
  - Cloud Native Glasgow
  - BSides Manchester
  - BSides Belfast
- - ???
+ - Securi-Tay 2018
 
 ## Software
 

@@ -6,7 +6,7 @@ Note: One of the reasons for doing this research and contributing to the CIS sta
 
 # About Me
 
- - 17 Years in IT/Information Security
+ - 18 Years in IT/Information Security
  - Managing Consultant at NCC Group PLC
  - Contributor at Security Stack Exchange
  - Contributing author to the CIS Docker and Kubernetes Standards

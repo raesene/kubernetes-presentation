@@ -14,6 +14,18 @@
 
 --
 
+# Shodan & Friends
+
+--
+
+<img src="images/exposed_etcd.png"/>
+
+Note:
+
+Worth mentioning the Tesla story at this point.
+
+--
+
 # Information Disclosure with cAdvisor
 
 Note:

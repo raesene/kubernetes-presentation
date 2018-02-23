@@ -59,4 +59,18 @@ One of the challenges in reviewing "Kubernetes" is that this variety means that 
 
 --
 
+# So Where does the cloud come in?
+
+--
+
+### Cloudy Clusters
+
+* GKE
+* ACS/AKS
+* AKS
+* OCP
+* ...
+
+--
+
 # The importance of secure defaults!
