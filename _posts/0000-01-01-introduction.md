@@ -11,6 +11,14 @@ Note: One of the reasons for doing this research and contributing to the CIS sta
  - Contributor at Security Stack Exchange
  - Contributing author to the CIS Docker and Kubernetes Standards
 
+--
+
+<img src="/images/Loch_goil_hebridean_princess.jpg"/>
+
+--
+
+<img src="/images/lochgoilhead_internet_access.jpg"/>
+
 ---
 
 # Topics
