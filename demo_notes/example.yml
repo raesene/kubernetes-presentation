@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: master
-        image: 192.168.111.50:5000/redis  # or just image: redis
+        image: 192.168.200.50:5000/redis  # or just image: redis
         resources:
           requests:
             cpu: 100m
@@ -69,7 +69,7 @@ spec:
     spec:
       containers:
       - name: slave
-        image: 192.168.111.50:5000/redisslave
+        image: 192.168.200.50:5000/redisslave
         resources:
           requests:
             cpu: 100m
@@ -116,7 +116,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: 192.168.111.50:5000/frontend
+        image: 192.168.200.50:5000/frontend
         resources:
           requests:
             cpu: 100m

