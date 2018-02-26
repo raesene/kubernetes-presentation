@@ -2,14 +2,6 @@
 
 --
 
-# Demo Time!
-
---
-
-<video src="/demo_videos/Create_service.mp4">
-
---
-
 ### Some Terminology
 
 * Containers
@@ -25,6 +17,8 @@
 <image src="/images/architecture.PNG"/>
 
 Note: There are a wide range of Kubernetes components, but for the purposes of this talk these are the ones that we're going to focus on for this talk.
+
+Important thing to note about a lot of this stuff, is that it's all linux primitives.
 
 
 --
@@ -67,7 +61,7 @@ One of the challenges in reviewing "Kubernetes" is that this variety means that 
 
 * GKE
 * ACS/AKS
-* AKS
+* EKS
 * OCP
 * ...
 

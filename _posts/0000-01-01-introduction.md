@@ -49,6 +49,14 @@ quote from https://kubernetes.io
 
 --
 
+# Demo Time!
+
+--
+
+<video src="/demo_videos/Create_service.mp4">
+
+--
+
 ### Project Background
 
 * Started by Google in 2014.
