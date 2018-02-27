@@ -23,6 +23,7 @@ Note: One of the reasons for doing this research and contributing to the CIS sta
 
 # Topics
 
+* Containers 101 {% fragment %}
 * Kubernetes Architecture {% fragment %}
 * Kubernetes Deployment Options {% fragment %}
 * Threat Model {% fragment %}
@@ -31,6 +32,22 @@ Note: One of the reasons for doing this research and contributing to the CIS sta
 Note:
 
 Not covering general docker / container security much, see previous presentations :)
+
+--
+
+# What are Containers?
+
+--
+
+<img src="/images/containersvvms.png"/>
+
+--
+
+# Where does Docker Come in?
+
+--
+
+<img src="/images/docker.png"/>
 
 --
 
