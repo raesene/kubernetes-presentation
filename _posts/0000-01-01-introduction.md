@@ -83,3 +83,7 @@ quote from https://kubernetes.io
 Note:
 
 Kubernetes first release was in 2014 based on internal google projects like borg.  The 1.0 release was in 2015 at which point the CNCF was founded and Kubernetes handed over to that organization.  Very rapid development (Over 52k commits to the main repo) and adoption across a range of business sectors including financial services (e.g. Monzo), the public sector (e.g. the UK Home Office) and retail (e.g. Ocado http://ocadotechnology.com/blog/creating-a-distributed-data-centre-architecture-using-kubernetes-and-containers/)
+
+--
+
+<img src="/images/cncf.png"/>
