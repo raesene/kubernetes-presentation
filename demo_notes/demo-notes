@@ -1,8 +1,11 @@
 # Demo Notes
 
 ## Kubernetes Demo
+kubectl get services
 
 kubectl create -f example.yaml
+
+kubectl get services
 
 This should spin up the guestbook example using the repo. on 192.168.200.50 (don't forget to start this VM)
 
