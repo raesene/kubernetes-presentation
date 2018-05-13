@@ -22,7 +22,7 @@
 
 Note:
 
-Worth mentioning the Tesla story at this point.
+Worth mentioning the Tesla story and the footgun of etcd at this point.
 
 --
 
